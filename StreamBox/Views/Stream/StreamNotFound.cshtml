@@ -1,0 +1,14 @@
+﻿@model int
+@{
+    ViewData["Title"] = "404 Not Found .";
+}
+
+<div class="alert alert-danger mt-1 mb-1">
+    <h1>404 erorr  Not found</h1>
+    <hr />
+    <h2> Stream with id @Model Cannot found </h2>
+</div>
+<a asp-action="ManageStream" asp-controller="Stream" class="btn btn-outline-success">
+    Click here to see all Streams
+</a>
+

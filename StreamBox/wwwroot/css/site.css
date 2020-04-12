@@ -1,0 +1,11 @@
+﻿.btn{
+    width:75px;
+}
+.image-container {
+    /*background-image: url();*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:auto;
+    display:flex;
+    height:100px;
+}
