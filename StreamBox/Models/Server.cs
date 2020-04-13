@@ -16,17 +16,25 @@ namespace StreamBox.Models
 
         [Required]
         [Display(Name = "Max Clients")]
-        public int MaxClients { get; set; } 
+        public int MaxClients { get; set; }
+
+        [Display(Name = "HTTP Port")]
+        public int HttpPort { get; set; } = 80;
+
+        [Display(Name = "HTTPS Port")]
+        public int HttpsPort { get; set; } = 443;
+
+        [Display(Name = "RTMP Port")]
+        public int RtmpPort { get; set; } = 1935;
+
+        [Display(Name = "SSH Port")]
+        public int SshPort { get; set; } = 22;
+
+        [Display(Name = "is RTMP?")]
+        public bool IsRtmp { get; set; }
 
         [Required]
-        [Display(Name = "Superuser username (sudo)")]
-        public string SudoUsername { get; set; }
-
-        [Required]
-        [Display(Name = "Superuser password (sudo)")]
-        public string SudoPassword { get; set; }
-
-        //One-To-Many RelationShip.
-        public ICollection<Stream> streams { get; set; }
+        [Display(Name = "Root password")]
+        public string RootPassword { get; set; }
     }
 }

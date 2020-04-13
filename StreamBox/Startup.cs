@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StreamBox.Realtime;
 using StreamBox.Models;
 
 namespace StreamBox
@@ -31,45 +32,31 @@ namespace StreamBox
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddSession();
-
-            //To make Authorize as a global and make sure the users is authinticated befor log in 
-            services.AddControllersWithViews(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlSerializerFormatters();
+            services.AddSignalR();
 
             //Make Debicies to DataBase . 
             services.AddDbContextPool<AppDbContext>(
                e => e.UseSqlServer(_config.GetConnectionString("StreamTecDbConnection")));
 
             //To make Authorize as a global and make sure the users is authinticated befor log in 
-            services.AddControllersWithViews(config =>
+            /*services.AddControllersWithViews(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
                                  .RequireAuthenticatedUser()
                                  .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlSerializerFormatters();
+            }).AddXmlSerializerFormatters();*/
 
-            //Configration formate of password :)))
-            services.Configure<IdentityOptions>(option =>
+            /*services.Configure<IdentityOptions>(option =>
             {
                 option.Password.RequiredLength = 3;
                 option.Password.RequireUppercase = false;
                 option.Password.RequireNonAlphanumeric = false;
                 option.Password.RequireDigit = false;
-            });
+            });*/
 
             services.AddScoped<IGenericRepository<Stream>, SqlStreamRepository>();
             services.AddScoped<IGenericRepository<Server>, SqlServerRepository>();
-
-            //To put authentication scheme .
-            services.AddIdentity<IdentityUser, IdentityRole>()
-               .AddDefaultTokenProviders()
-               .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -89,26 +76,21 @@ namespace StreamBox
 
             //General Data Protection Regulation (GDPR) regulations ... redirects HTTP requests to HTTPS.
             app.UseHttpsRedirection();
-
-            //For static file "wwwroot"
             app.UseStaticFiles();
-
-      
             app.UseRouting();
-
             //who are you ?
             //is the process that identify who the user he is ?
-            app.UseAuthentication();
-
+            //app.UseAuthentication();
             //are you allowed?
             //what the user can and cannot do ?
-            app.UseAuthorization();
-
+            //app.UseAuthorization();
             app.UseSession();
+
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapHub<StatsHub>("/statistics");
             });
         }
     }

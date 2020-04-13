@@ -1,0 +1,8 @@
+<svg id="Component_12_1" data-name="Component 12 – 1" xmlns="http://www.w3.org/2000/svg" width="170" height="170" viewBox="0 0 170 170">
+  <g id="Ellipse_10" data-name="Ellipse 10" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="85" cy="85" r="85" stroke="none"/>
+    <circle cx="85" cy="85" r="83.5" fill="none"/>
+  </g>
+  <text id="Suppliers" transform="translate(30 102)" fill="#e2e2e2" font-size="20" font-family="SegoeUI-Light, Segoe UI" font-weight="300"><tspan x="17.046" y="22">Suppliers</tspan></text>
+  <path id="Icon_awesome-users" data-name="Icon awesome-users" d="M8.571,19.393a5.714,5.714,0,1,0-5.714-5.714A5.72,5.72,0,0,0,8.571,19.393Zm40,0a5.714,5.714,0,1,0-5.714-5.714A5.72,5.72,0,0,0,48.571,19.393Zm2.857,2.857H45.714a5.7,5.7,0,0,0-4.027,1.661,13.06,13.06,0,0,1,6.705,9.768h5.893a2.854,2.854,0,0,0,2.857-2.857V27.964A5.72,5.72,0,0,0,51.429,22.25Zm-22.857,0a10,10,0,1,0-10-10A9.995,9.995,0,0,0,28.571,22.25Zm6.857,2.857h-.741a13.806,13.806,0,0,1-12.232,0h-.741A10.288,10.288,0,0,0,11.429,35.393v2.571a4.287,4.287,0,0,0,4.286,4.286H41.429a4.287,4.287,0,0,0,4.286-4.286V35.393A10.288,10.288,0,0,0,35.429,25.107Zm-19.973-1.2a5.7,5.7,0,0,0-4.027-1.661H5.714A5.72,5.72,0,0,0,0,27.964v2.857a2.854,2.854,0,0,0,2.857,2.857H8.741A13.093,13.093,0,0,1,15.455,23.911Z" transform="translate(56 44.75)" fill="none" stroke="#f73dc6" stroke-width="2"/>
+</svg>
