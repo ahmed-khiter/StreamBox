@@ -34,15 +34,6 @@ namespace StreamBox
             services.AddSession();
             services.AddSignalR();
 
-            //To make Authorize as a global and make sure the users is authinticated befor log in 
-            services.AddControllersWithViews(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlSerializerFormatters();
-
             //Make Debicies to DataBase . 
             services.AddDbContextPool<AppDbContext>(
                e => e.UseSqlServer(_config.GetConnectionString("StreamTecDbConnection")));
@@ -56,12 +47,7 @@ namespace StreamBox
                 config.Filters.Add(new AuthorizeFilter(policy));
             }).AddXmlSerializerFormatters();*/
 
-<<<<<<< HEAD
-            //Configration formate of password :)))
-            services.Configure<IdentityOptions>(option =>
-=======
             /*services.Configure<IdentityOptions>(option =>
->>>>>>> master
             {
                 option.Password.RequiredLength = 3;
                 option.Password.RequireUppercase = false;
@@ -71,11 +57,6 @@ namespace StreamBox
 
             services.AddScoped<IGenericRepository<Stream>, SqlStreamRepository>();
             services.AddScoped<IGenericRepository<Server>, SqlServerRepository>();
-
-            //To put authentication scheme .
-            services.AddIdentity<IdentityUser, IdentityRole>()
-               .AddDefaultTokenProviders()
-               .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -95,30 +76,16 @@ namespace StreamBox
 
             //General Data Protection Regulation (GDPR) regulations ... redirects HTTP requests to HTTPS.
             app.UseHttpsRedirection();
-
-            //For static file "wwwroot"
             app.UseStaticFiles();
-
-      
             app.UseRouting();
-
             //who are you ?
             //is the process that identify who the user he is ?
-<<<<<<< HEAD
-            app.UseAuthentication();
-
-            //are you allowed?
-            //what the user can and cannot do ?
-            app.UseAuthorization();
-=======
             //app.UseAuthentication();
             //are you allowed?
             //what the user can and cannot do ?
             //app.UseAuthorization();
             app.UseSession();
->>>>>>> master
 
-            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
