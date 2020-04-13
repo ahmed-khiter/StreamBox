@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Adminstration\" />
     <Folder Include="Views\Shared\" />
@@ -21,6 +20,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="4.7.0" />
   </ItemGroup>
 
 </Project>

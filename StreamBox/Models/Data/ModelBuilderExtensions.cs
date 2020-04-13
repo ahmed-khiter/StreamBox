@@ -10,13 +10,6 @@ namespace StreamBox.Models
     {
         public static void Configrations(this ModelBuilder modelBuilder)
         {
-            //Configration One-To-Many relationship between Server and stream.
-            modelBuilder.Entity<Server>()
-                  .HasMany(c => c.streams)
-                  .WithOne(e => e.server);
-
-            //=================================================================
-            
             //Configration Many-To-Many Relationships between Bouquets and stream
             modelBuilder.Entity<StreamBouquets>()
                 .HasKey(hk => new { hk.BouquetsId, hk.StreamId });
@@ -32,8 +25,6 @@ namespace StreamBox.Models
                 .HasOne(o => o.Bouquet)
                 .WithMany(m => m.StreamBouquets)
                 .HasForeignKey(fk => fk.BouquetsId);
-
-            //===============================================================
 
         }
     }

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Statistics</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>CPU</th>
+            <th>RAM</th>
+            <th>UpTime</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td width="200" id="cpu">0%</td>
+            <td width="200" id="ram">0GB</td>
+            <td width="200" id="uptime">00:00</td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/assets/js/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/statistics").build();
+
+        connection.start().then(function () {
+            setInterval(() => {
+                connection.invoke("Statistics").catch(function (err) {
+                    return console.error(err.toString());
+                });
+            }, 1000);
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        connection.on("Statistics", function (stats) {
+            document.getElementById("cpu").innerHTML = stats.cpu;
+            document.getElementById("ram").innerHTML = stats.ram;
+            document.getElementById("uptime").innerHTML = stats.uptime;
+        });
+
+    </script>
+}
+

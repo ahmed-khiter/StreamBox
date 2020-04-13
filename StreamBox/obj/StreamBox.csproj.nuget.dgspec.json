@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\works\\C#\\ASP.net Core\\1\\StreamBox\\StreamBox\\StreamBox.csproj": {}
+    "D:\\Coding\\Projects\\C#\\StreamBox\\StreamBox\\StreamBox.csproj": {}
   },
   "projects": {
-    "D:\\works\\C#\\ASP.net Core\\1\\StreamBox\\StreamBox\\StreamBox.csproj": {
+    "D:\\Coding\\Projects\\C#\\StreamBox\\StreamBox\\StreamBox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\works\\C#\\ASP.net Core\\1\\StreamBox\\StreamBox\\StreamBox.csproj",
+        "projectUniqueName": "D:\\Coding\\Projects\\C#\\StreamBox\\StreamBox\\StreamBox.csproj",
         "projectName": "StreamBox",
-        "projectPath": "D:\\works\\C#\\ASP.net Core\\1\\StreamBox\\StreamBox\\StreamBox.csproj",
-        "packagesPath": "C:\\Users\\Khiter\\.nuget\\packages\\",
-        "outputPath": "D:\\works\\C#\\ASP.net Core\\1\\StreamBox\\StreamBox\\obj\\",
+        "projectPath": "D:\\Coding\\Projects\\C#\\StreamBox\\StreamBox\\StreamBox.csproj",
+        "packagesPath": "C:\\Users\\ayman\\.nuget\\packages\\",
+        "outputPath": "D:\\Coding\\Projects\\C#\\StreamBox\\StreamBox\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Khiter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ayman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,6 +63,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "System.Diagnostics.PerformanceCounter": {
+              "target": "Package",
+              "version": "[4.7.0, )"
             }
           },
           "imports": [
