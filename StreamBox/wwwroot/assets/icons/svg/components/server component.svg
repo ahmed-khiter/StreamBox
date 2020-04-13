@@ -1,0 +1,13 @@
+<svg id="Component_14_1" data-name="Component 14 – 1" xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130">
+  <g id="Ellipse_6" data-name="Ellipse 6" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="65" cy="65" r="65" stroke="none"/>
+    <circle cx="65" cy="65" r="63.5" fill="none"/>
+  </g>
+  <text id="Servers" transform="translate(29 82)" fill="#e2e2e2" font-size="16" font-family="SegoeUI-Light, Segoe UI" font-weight="300"><tspan x="11.867" y="17">Servers</tspan></text>
+  <g id="Icon_feather-server" data-name="Icon feather-server" transform="translate(51.8 31)">
+    <path id="Path_10" data-name="Path 10" d="M5.371,3H24.342c1.31,0,2.371.784,2.371,1.75v3.5c0,.966-1.062,1.75-2.371,1.75H5.371C4.062,10,3,9.216,3,8.25V4.75C3,3.784,4.062,3,5.371,3Z" transform="translate(-0.3 4.38)" fill="none" stroke="#21b343" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_11" data-name="Path 11" d="M5.371,21H24.342c1.31,0,2.371.784,2.371,1.75v3.5c0,.966-1.062,1.75-2.371,1.75H5.371C4.062,28,3,27.216,3,26.25v-3.5C3,21.784,4.062,21,5.371,21Z" transform="translate(0 -0.62)" fill="none" stroke="#21b343" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_12" data-name="Path 12" d="M9,9H9" transform="translate(-2.3 1.449)" fill="none" stroke="#21b343" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_13" data-name="Path 13" d="M0,0H0" transform="matrix(-0.438, -0.899, 0.899, -0.438, 7.787, 24.093)" fill="none" stroke="#21b343" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

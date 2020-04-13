@@ -1,0 +1,12 @@
+<svg id="Component_11_1" data-name="Component 11 – 1" xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 350 350">
+  <g id="Chart" transform="matrix(0.946, 0.326, -0.326, 0.946, 160.859, 241.911)">
+    <g id="m1" transform="translate(-175 -175)">
+      <path id="Path_3" data-name="Path 3" d="M0,154.266C9.19,128.2,18.38,102.132,27.57,91.9s18.38-4.619,27.57,12.582,18.38,45.992,27.57,49.781,18.38-17.424,27.57-44.857,18.38-61.086,27.57-54.7,18.38,52.8,27.57,62.363,18.38-17.717,27.57-37.746,18.38-32.805,27.57-37.2,18.38-.4,27.57,12.582,18.38,34.97,27.57,27.352S294.081,37.219,303.271,0" transform="translate(0 0)" fill="none" stroke="#34e0e7" stroke-width="2"/>
+    </g>
+  </g>
+  <g id="Ellipse_3" data-name="Ellipse 3" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="175" cy="175" r="175" stroke="none"/>
+    <circle cx="175" cy="175" r="173.5" fill="none"/>
+  </g>
+  <text id="Stream" transform="translate(64 245)" fill="#e2e2e2" font-size="30" font-family="SegoeUI-Light, Segoe UI" font-weight="300"><tspan x="66.128" y="32">Stream</tspan></text>
+</svg>

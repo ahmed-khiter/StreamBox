@@ -9,22 +9,22 @@ namespace StreamBox.Controllers
 {
     public class StreamController : Controller
     {
-        private readonly IGenericRepository<Stream> _StreamRepository;
-        public StreamController(IGenericRepository<Stream> StreamRepository)
+        private readonly IGenericRepository<Stream> StreamRepository;
+        public StreamController(IGenericRepository<Stream> streamRepository)
         {
-            this._StreamRepository = StreamRepository;
+            this.StreamRepository = streamRepository;
         }
-        public IActionResult ManageStream()
+        public IActionResult ManageStreamRepository()
         {
-            return View(_StreamRepository.GetAllEntities());
+            return View(StreamRepository.GetAllEntities());
         }
         public IActionResult Detalies(int?Id)
         {
-            var model = _StreamRepository.GetById(Id.Value);
+            var model = StreamRepository.GetById(Id.Value);
             if (model == null)
             {
                 Response.StatusCode = 404;
-                return View("StreamNotFound", Id.Value);
+                return View("StreamRepositoryNotFound", Id.Value);
             }
             else
             { 
@@ -43,20 +43,13 @@ namespace StreamBox.Controllers
         {
             if (ModelState.IsValid)
             {
-                _StreamRepository.Add(model);
+                StreamRepository.Add(model);
                 return RedirectToAction(nameof(Detalies), new { id = model.Id});
             }
             else
             {
                 return View();
             }
-        }
-
-        [HttpPost]
-        public IActionResult Delete(int Id)
-        {
-            _StreamRepository.Delete(Id);
-            return RedirectToAction(nameof(ManageStream));
         }
 
         [HttpGet]
@@ -66,12 +59,12 @@ namespace StreamBox.Controllers
             {
                 return BadRequest();
             }
-            var model = _StreamRepository.GetById(id);
+            var model = StreamRepository.GetById(id);
 
             if(model == null)
             {
                 Response.StatusCode = 404;
-                return View("StreamNotFound", id);
+                return View("StreamRepositoryNotFound", id);
             }
             return View(model);
         }
@@ -80,13 +73,21 @@ namespace StreamBox.Controllers
         {
             if (ModelState.IsValid)
             {
-                _StreamRepository.Update(model);
-                return RedirectToAction(nameof(ManageStream));
+                StreamRepository.Update(model);
+                return RedirectToAction(nameof(ManageStreamRepository));
             }
             else
             {
                 return BadRequest();
             }
         }
+
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            StreamRepository.Delete(Id);
+            return RedirectToAction(nameof(ManageStreamRepository));
+        }
+
     }
 }

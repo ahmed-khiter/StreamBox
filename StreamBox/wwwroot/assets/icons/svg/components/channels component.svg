@@ -1,0 +1,11 @@
+<svg id="Component_15_1" data-name="Component 15 – 1" xmlns="http://www.w3.org/2000/svg" width="170" height="170" viewBox="0 0 170 170">
+  <g id="Ellipse_4" data-name="Ellipse 4" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="85" cy="85" r="85" stroke="none"/>
+    <circle cx="85" cy="85" r="83.5" fill="none"/>
+  </g>
+  <text id="Channels" transform="translate(30 102)" fill="#e2e2e2" font-size="20" font-family="SegoeUI-Light, Segoe UI" font-weight="300"><tspan x="16.812" y="22">Channels</tspan></text>
+  <g id="Icon_feather-tv" data-name="Icon feather-tv" transform="translate(62 44)">
+    <path id="Path_4" data-name="Path 4" d="M7,10.5H39a4.177,4.177,0,0,1,4,4.333V38.667A4.177,4.177,0,0,1,39,43H7a4.177,4.177,0,0,1-4-4.333V14.833A4.177,4.177,0,0,1,7,10.5Z" transform="translate(0 0)" fill="none" stroke="#ebcd06" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_5" data-name="Path 5" d="M25.5,3,18,10.5,10.5,3" transform="translate(5)" fill="none" stroke="#ebcd06" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

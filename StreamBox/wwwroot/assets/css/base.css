@@ -1,0 +1,199 @@
+/* Essential stuff */
+
+:root {
+    /* colors */
+    --background-primary-dark-color: #202442;
+    --background-secondary-dark-color: #0C1221;
+    --foreground-light-color: #e2e2e2;
+    --stream-color: #34E0E7;
+    --stream-color-hover: rgba(52, 225, 231, 0.1);
+    --suppliers-color: #F73DC6;
+    --suppliers-color-hover: rgba(247, 61, 197, 0.1);
+    --packages-color: #FDA268;
+    --packages-color-hover: rgba(253, 161, 104, 0.1);
+    --servers-color: #21B343;
+    --servers-color-hover: rgba(33, 179, 67, 0.1);
+    --channels-color: #EBCD06;
+    --channels-color-hover: rgba(235, 205, 6, 0.1);
+    --dashboard-color: #E93939;
+    --dashboard-color-hover: rgba(233, 57, 57, 0.1);
+    --log-color: #05B396;
+    --log-color-hover: hsla(170, 95%, 36%, 0.1);
+    /* sizes */
+    --huge: 10rem;
+    --big: 6rem;
+    --medium: 4rem;
+    --small: 2rem;
+    --tiny: 1rem;
+    /* font familiy */
+    --main-font: Segoe UI;
+    /* font sizes */
+    --huge-text: 6rem;
+    --big-text: 4rem;
+    --medium-text: 3rem;
+    --small-text: 1rem;
+    --tiny-text: .5rem;
+    /* icon sizes */
+    --huge: 10rem;
+    --big: 6rem;
+    --medium: 4rem;
+    --small: 2rem;
+    --tiny: 1rem;
+}
+
+
+/* normalize essential stuff */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-primary-dark-color);
+    color: var(--foreground-light-color);
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: var(--tiny);
+}
+
+header .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    height: 120px;
+    justify-content: space-around;
+}
+
+header .logo-container .logo {
+    height: 80px;
+    width: 80px;
+}
+
+header .logo-container label a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+header .profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 825px;
+}
+
+header .profile-container figure:first-child {
+    height: 1.6px;
+    width: 350px;
+    background-color: var(--foreground-light-color);
+}
+
+header .profile-container .profile-photo-container .profile-photo {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+header .profile-container figure:last-child {
+    height: 1.6px;
+    width: 350px;
+    background-color: var(--foreground-light-color);
+}
+
+header .helper-stuff {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+}
+
+header .helper-stuff>img {
+    height: 25px;
+}
+
+main {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    align-self: center;
+    align-items: center;
+}
+
+main .streaming-container {
+    height: 280px;
+    width: 280px;
+    z-index: auto;
+}
+
+main .streaming-container svg {
+    width: 279px;
+    position: relative;
+    top: 1%;
+    z-index: auto;
+    transition: all ease-in-out .3s;
+}
+
+main .streaming-container label {
+    text-align: center;
+    position: relative;
+    left: 50%;
+}
+
+.stream-container:hover {
+    background-color: var(--stream-color-hover);
+    border-radius: 50%;
+}
+
+.log-container:hover {
+    background-color: var(--log-color-hover);
+    border-radius: 50%;
+}
+
+.dashboard-container:hover {
+    background-color: var(--dashboard-color-hover);
+    border-radius: 50%;
+}
+
+.channels-container:hover {
+    background-color: var(--channels-color-hover);
+    border-radius: 50%;
+}
+
+.suppliers-container:hover {
+    background-color: var(--suppliers-color-hover);
+    border-radius: 50%;
+}
+
+.packages-container:hover {
+    background-color: var(--packages-color-hover);
+    border-radius: 50%;
+}
+
+.servers-container:hover {
+    background-color: var(--servers-color-hover);
+    border-radius: 50%;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--tiny);
+}
+
+footer a {
+    color: var(--foreground-light-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

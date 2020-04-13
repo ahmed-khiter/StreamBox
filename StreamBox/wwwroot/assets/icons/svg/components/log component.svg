@@ -1,0 +1,8 @@
+<svg id="Component_17_1" data-name="Component 17 – 1" xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130">
+  <g id="Ellipse_7" data-name="Ellipse 7" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="65" cy="65" r="65" stroke="none"/>
+    <circle cx="65" cy="65" r="63.5" fill="none"/>
+  </g>
+  <text id="Logs" transform="translate(45 82)" fill="#e2e2e2" font-size="16" font-family="SegoeUI-Light, Segoe UI" font-weight="300"><tspan x="4.762" y="17">Logs</tspan></text>
+  <path id="Icon_material-error-outline" data-name="Icon material-error-outline" d="M16.5,22.5h3v3h-3Zm0-12h3v9h-3ZM17.985,3A15,15,0,1,0,33,18,14.993,14.993,0,0,0,17.985,3ZM18,30A12,12,0,1,1,30,18,12,12,0,0,1,18,30Z" transform="translate(47 35)" fill="#05b396"/>
+</svg>

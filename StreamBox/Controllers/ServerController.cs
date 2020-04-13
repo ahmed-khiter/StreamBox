@@ -10,27 +10,10 @@ namespace StreamBox.Controllers
     public class ServerController : Controller
     {
 
-        private readonly IGenericRepository<Server> _StreamRepository;
-        public ServerController(IGenericRepository<Server> StreamRepository)
+        private readonly IGenericRepository<Server> StreamRepository;
+        public ServerController(IGenericRepository<Server> streamRepository)
         {
-            this._StreamRepository = StreamRepository;
-        }
-        public IActionResult ManageServer()
-        {
-            return View(_StreamRepository.GetAllEntities());
-        }
-        public IActionResult Detalies(int? Id)
-        {
-            var model = _StreamRepository.GetById(Id.Value);
-            if (model == null)
-            {
-                Response.StatusCode = 404;
-                return View("ServerNotFound", Id.Value);
-            }
-            else
-            {
-                return View(model);
-            }
+            this.StreamRepository = streamRepository;
         }
 
         [HttpGet]
@@ -44,20 +27,13 @@ namespace StreamBox.Controllers
         {
             if (ModelState.IsValid)
             {
-                _StreamRepository.Add(model);
-                return RedirectToAction(nameof(Detalies), new { id = model.Id });
+                StreamRepository.Add(model);
+                return RedirectToAction(nameof(Details), new { id = model.Id });
             }
             else
             {
                 return View();
             }
-        }
-
-        [HttpPost]
-        public IActionResult Delete(int Id)
-        {
-            _StreamRepository.Delete(Id);
-            return RedirectToAction(nameof(ManageServer));
         }
 
         [HttpGet]
@@ -67,7 +43,7 @@ namespace StreamBox.Controllers
             {
                 return BadRequest();
             }
-            var model = _StreamRepository.GetById(id);
+            var model = StreamRepository.GetById(id);
 
             if (model == null)
             {
@@ -81,13 +57,42 @@ namespace StreamBox.Controllers
         {
             if (ModelState.IsValid)
             {
-                _StreamRepository.Update(model);
-                return RedirectToAction(nameof(ManageServer));
+                StreamRepository.Update(model);
+                return RedirectToAction(nameof(Manage));
             }
             else
             {
                 return BadRequest();
             }
         }
+
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            StreamRepository.Delete(Id);
+            return RedirectToAction(nameof(Manage));
+        }
+
+        [HttpGet]
+        public IActionResult Manage()
+        {
+            return View(StreamRepository.GetAllEntities());
+        }
+
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            var model = StreamRepository.GetById(Id.Value);
+            if (model == null)
+            {
+                Response.StatusCode = 404;
+                return View("ServerNotFound", Id.Value);
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+
     }
 }

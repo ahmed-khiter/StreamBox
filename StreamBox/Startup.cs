@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StreamBox.Realtime;
 using StreamBox.Models;
 
 namespace StreamBox
@@ -31,6 +32,7 @@ namespace StreamBox
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddSession();
+            services.AddSignalR();
 
             //To make Authorize as a global and make sure the users is authinticated befor log in 
             services.AddControllersWithViews(config =>
@@ -46,22 +48,26 @@ namespace StreamBox
                e => e.UseSqlServer(_config.GetConnectionString("StreamTecDbConnection")));
 
             //To make Authorize as a global and make sure the users is authinticated befor log in 
-            services.AddControllersWithViews(config =>
+            /*services.AddControllersWithViews(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
                                  .RequireAuthenticatedUser()
                                  .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlSerializerFormatters();
+            }).AddXmlSerializerFormatters();*/
 
+<<<<<<< HEAD
             //Configration formate of password :)))
             services.Configure<IdentityOptions>(option =>
+=======
+            /*services.Configure<IdentityOptions>(option =>
+>>>>>>> master
             {
                 option.Password.RequiredLength = 3;
                 option.Password.RequireUppercase = false;
                 option.Password.RequireNonAlphanumeric = false;
                 option.Password.RequireDigit = false;
-            });
+            });*/
 
             services.AddScoped<IGenericRepository<Stream>, SqlStreamRepository>();
             services.AddScoped<IGenericRepository<Server>, SqlServerRepository>();
@@ -98,17 +104,26 @@ namespace StreamBox
 
             //who are you ?
             //is the process that identify who the user he is ?
+<<<<<<< HEAD
             app.UseAuthentication();
 
             //are you allowed?
             //what the user can and cannot do ?
             app.UseAuthorization();
+=======
+            //app.UseAuthentication();
+            //are you allowed?
+            //what the user can and cannot do ?
+            //app.UseAuthorization();
+            app.UseSession();
+>>>>>>> master
 
             app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapHub<StatsHub>("/statistics");
             });
         }
     }
