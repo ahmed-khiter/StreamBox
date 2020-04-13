@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <Folder Include="wwwroot\" />
+=======
     <Folder Include="ViewModels\" />
+>>>>>>> master
     <Folder Include="Views\Adminstration\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
