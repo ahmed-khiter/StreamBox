@@ -1,4 +1,4 @@
-﻿using StreamBox.Models.RelationsShips;
+﻿using StreamBox.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
