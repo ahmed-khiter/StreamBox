@@ -13,10 +13,5 @@ namespace StreamBox.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Add()
-        {
-
-        }
     }
 }
