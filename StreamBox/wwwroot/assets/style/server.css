@@ -64,7 +64,7 @@ main {
 
 .inputs-items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
     gap: var(--small);
     width: 90%;
@@ -78,7 +78,7 @@ main {
     border: none;
     color: var(--foreground-gray-color);
     border-radius: 10px;
-    width: 200px;
+    width: 150px;
     padding: 10px 10px;
     font-size: var(--small-text);
 }
@@ -149,4 +149,8 @@ button {
 
 .main-nav-bar figure svg {
     height: 80px;
+}
+
+.input-container span {
+    color: red;
 }

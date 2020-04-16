@@ -9,12 +9,10 @@ namespace StreamBox.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Server Name")]
-        public string ServerName { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Server IP")]
-        public string ServerIP { get; set; }
+        public string IP { get; set; }
 
         [Required]
         [Display(Name = "Max Clients")]
@@ -25,18 +23,20 @@ namespace StreamBox.Models
         public string RootPassword { get; set; }
 
         [Display(Name = "HTTP Port")]
-        public int HTTPPort { get; set; }
+        public int HTTPPort { get; set; } = 80;
 
         [Display(Name = "HTTPS Port")]
-        public int HTTPSPort { get; set; }
+        public int HTTPSPort { get; set; } = 443;
 
         [Display(Name = "RTMP Port")]
-        public int RTMPPort { get; set; }
+        public int RTMPPort { get; set; } = 1935;
 
         [Display(Name = "SSH Port")]
-        public int SSHPort { get; set; }
+        public int SSHPort { get; set; } = 22;
 
         [Display(Name = "Is RTMP?")]
-        public bool IsRTMP { get; set; }
+        public bool IsRTMP { get; set; } = false;
+
+        public bool State { get; set; } = false;
     }
 }

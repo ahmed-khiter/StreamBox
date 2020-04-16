@@ -1,7 +1,58 @@
-﻿
+﻿@model IEnumerable<Server>
 @{
     ViewData["Title"] = "Manage servers";
 }
 
-<h1>Manage</h1>
+@section styles {
+    <link rel="stylesheet" href="~/assets/style/server.css" />
+}
 
+<main>
+    <div class="main-content-container ">
+        <nav class="server-box-nav ">
+            <button class="server-button-active">
+                <a asp-action="Add" asp-controller="Server">
+                    <svg xmlns="http://www.w3.org/2000/svg " width="30 " height="30 " viewBox="0 0 30 30 ">
+                        <path id="Icon_material-add-box " data-name="Icon material-add-box "
+                              d="M31.167,4.5H7.833A3.332,3.332,0,0,0,4.5,7.833V31.167A3.332,3.332,0,0,0,7.833,34.5H31.167A3.343,3.343,0,0,0,34.5,31.167V7.833A3.343,3.343,0,0,0,31.167,4.5ZM27.833,21.167H21.167v6.667H17.833V21.167H11.167V17.833h6.667V11.167h3.333v6.667h6.667Z "
+                              transform="translate(-4.5 -4.5) " fill="#9c9c9c " />
+                    </svg>
+                </a>
+            </button>
+        </nav>
+        <div id="inputs-container " class="inputs-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>IP</th>
+                        <th>Max Clients</th>
+                        <th>State</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var server in Model)
+                    {
+                        <tr>
+                            <td>@server.Name</td>
+                            <td>@server.IP</td>
+                            <td>@server.MaxClients</td>
+                            <td>
+                                @if (server.State)
+                                {
+                                    <strong style="color:green">Ready</strong>
+                                }
+                                else
+                                {
+                                    <strong style="color:red">Proccessing...</strong>
+                                }
+                            </td>
+                            <td>NULL</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

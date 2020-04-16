@@ -32,22 +32,20 @@ namespace StreamBox.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            return View(new Server());
         }
 
         [HttpPost]
         public IActionResult Add(Server model)
         {
-            if (ModelState.IsValid)
-            {
-                Repository.Add(model);
-                return RedirectToAction(nameof(Details), new { id = model.Id });
-            }
-            else
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            Repository.Add(model);
+            return RedirectToAction(nameof(Details), new { id = model.Id });
         }
+
 
         [HttpPost]
         public IActionResult Delete(int Id)

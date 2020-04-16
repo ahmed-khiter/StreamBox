@@ -41,15 +41,12 @@ namespace StreamBox.Controllers
         [HttpPost]
         public IActionResult Add(Stream model)
         {
-            if (ModelState.IsValid)
-            {
-                Repository.Add(model);
-                return RedirectToAction(nameof(Detalies), new { id = model.Id});
-            }
-            else
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            Repository.Add(model);
+            return RedirectToAction(nameof(Detalies), new { id = model.Id });
         }
 
         [HttpPost]

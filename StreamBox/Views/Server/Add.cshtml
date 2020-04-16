@@ -1,3 +1,4 @@
+@model Server
 @{
     ViewData["Title"] = "Add server";
 }
@@ -7,112 +8,73 @@
 }
 
 <main>
-    <header class="content-header ">
-        <h1>Servers</h1>
-    </header>
     <div class="main-content-container ">
-            <nav class="server-box-nav ">
-                <button class="server-button-active">
-                    <svg xmlns="http://www.w3.org/2000/svg " width="30 " height="30 " viewBox="0 0 30 30 ">
-                    <path id="Icon_material-add-box " data-name="Icon material-add-box " 
-                    d="M31.167,4.5H7.833A3.332,3.332,0,0,0,4.5,7.833V31.167A3.332,3.332,0,0,0,7.833,34.5H31.167A3.343,3.343,0,0,0,34.5,31.167V7.833A3.343,3.343,0,0,0,31.167,4.5ZM27.833,21.167H21.167v6.667H17.833V21.167H11.167V17.833h6.667V11.167h3.333v6.667h6.667Z "
-                    transform="translate(-4.5 -4.5) " fill="#9c9c9c "/>
-                    </svg>
-                </button>
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg " width="30 " height="30 " viewBox="0 0 30 30 ">
-                        <path id="Icon_material-edit " data-name="Icon material-edit " d="M4.5,28.247V34.5h6.249L29.18,16.065,22.931,9.816ZM34.013,11.233a1.66,1.66,0,0,0,0-2.35l-3.9-3.9a1.66,1.66,0,0,0-2.35,0l-3.05,3.05,6.249,6.249,3.05-3.05Z "
-                            transform="translate(-4.5 -4.496) " fill="#9c9c9c "/>
-                    </svg>
-                </button>
-                <button>
+        <nav class="server-box-nav ">
+            <button class="server-button-active">
+                <a asp-controller="Server" asp-action="Manage">
                     <svg xmlns="http://www.w3.org/2000/svg " width="45 " height="30 " viewBox="0 0 45 30 ">
                         <path id="Icon_awesome-eye " data-name="Icon awesome-eye " d="M44.728,18.359A25.058,25.058,0,0,0,22.5,4.5,25.061,25.061,0,0,0,.272,18.36a2.527,2.527,0,0,0,0,2.28A25.058,25.058,0,0,0,22.5,34.5,25.061,25.061,0,0,0,44.728,20.64,2.527,2.527,0,0,0,44.728,18.359ZM22.5,30.75A11.25,11.25,0,1,1,33.75,19.5,11.25,11.25,0,0,1,22.5,30.75ZM22.5,12a7.446,7.446,0,0,0-1.977.3A3.738,3.738,0,0,1,15.3,17.523,7.483,7.483,0,1,0,22.5,12Z "
                             transform="translate(0 -4.5) " fill="#9c9c9c "/>
                     </svg>                      
-                </button>
-            </nav>
-            <div id="inputs-container " class="inputs-container ">
-                <h2>New Server</h2>
-                <form id="inputs-items" class="inputs-items ">
+                </a>
+            </button>
+        </nav>
+        <div id="inputs-container " class="inputs-container ">
+            <h2>New Server</h2>
+            <form id="inputs-items" class="inputs-items" asp-controller="Server" asp-action="Add" method="post">
 
-                    <div class="input-container ">
-                        <label>Server Name</label>
-                        <input type="text ">
+                <div class="input-container ">
+                    <label asp-for="@Model.Name"></label>
+                    <input asp-for="@Model.Name"/>
+                    <span asp-validation-for="@Model.Name"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.IP"></label>
+                    <input asp-for="@Model.IP">
+                    <span asp-validation-for="@Model.IP"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.MaxClients"></label>
+                    <input asp-for="@Model.MaxClients">
+                    <span asp-validation-for="@Model.MaxClients"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.RootPassword"></label>
+                    <input asp-for="@Model.RootPassword">
+                    <span asp-validation-for="@Model.RootPassword"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.HTTPPort"></label>
+                    <input asp-for="@Model.HTTPPort">
+                    <span asp-validation-for="@Model.HTTPPort"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.HTTPSPort"></label>
+                    <input asp-for="@Model.HTTPSPort">
+                    <span asp-validation-for="@Model.HTTPSPort"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.RTMPPort"></label>
+                    <input asp-for="@Model.RTMPPort">
+                    <span asp-validation-for="@Model.RTMPPort"></span>
+                </div>
+                <div class="input-container ">
+                    <label asp-for="@Model.SSHPort"></label>
+                    <input asp-for="@Model.SSHPort"/>
+                    <span asp-validation-for="@Model.SSHPort"></span>
+                </div>
+                <div class="input-container checkbox-container">
+                    <input asp-for="@Model.IsRTMP">
+                    <div id="loadbalance-div" class="checkbox">
+                        <svg id="loadbalance-icon" class="unchecked checked" xmlns="http://www.w3.org/2000/svg" width="39.403" height="30" viewBox="0 0 39.403 30">
+                            <path id="Icon_material-done" data-name="Icon material-done" d="M17.637,32.131l-9.4-9.4L5.1,25.863,17.637,38.4,44.5,11.534,41.369,8.4Z" transform="translate(-5.1 -8.4)" fill="#9c9c9c"/>
+                        </svg>
                     </div>
-                    <div class="input-container ">
-                        <label>Domain Name</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>Server ID</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>VPN Server</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>Max Clients</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>HTTP Port</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>HTTPS Port</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>RTMP Port</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>Network Interface</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>Network Speed</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container ">
-                        <label>GeoIP</label>
-                        <input type="text ">
-                    </div>
-                    <div class="input-container checkbox-container">
-                        <input id="loadbalance-checkbox" type="checkbox">
-                        <div id="loadbalance-div" class="checkbox">
-                            <svg id="loadbalance-icon" class="unchecked checked" xmlns="http://www.w3.org/2000/svg" width="39.403" height="30" viewBox="0 0 39.403 30">
-                                <path id="Icon_material-done" data-name="Icon material-done" d="M17.637,32.131l-9.4-9.4L5.1,25.863,17.637,38.4,44.5,11.534,41.369,8.4Z" transform="translate(-5.1 -8.4)" fill="#9c9c9c"/>
-                            </svg>
-                        </div>
-                        <label for="loadbalance-checkbox">Load Balancing</label>
-                    </div>
-                    <div class="input-container checkbox-container">
-                        <input id="timeshift-checkbox" type="checkbox">
-                        <div id="timeshift-div" class="checkbox">
-                            <svg id="timeshift-icon" class="unchecked" xmlns="http://www.w3.org/2000/svg" width="39.403" height="30" viewBox="0 0 39.403 30">
-                                <path id="Icon_material-done" data-name="Icon material-done" d="M17.637,32.131l-9.4-9.4L5.1,25.863,17.637,38.4,44.5,11.534,41.369,8.4Z" transform="translate(-5.1 -8.4)" fill="#9c9c9c"/>
-                            </svg>
-                        </div>
-                        <label for="timeshif-checkbox">Time Shift Only</label>
-                    </div>
-                </form>
+                    <label asp-for="@Model.IsRTMP"></label>
+                </div>
+            </form>
             <div class="action-buttons ">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg " width="45 " height="64 " viewBox="0 0 45 64 ">
-                        <g id="Group_21 " data-name="Group 21 " transform="translate(-948 -733) ">
-                        <g id="Ellipse_6 " data-name="Ellipse 6 " transform="translate(948 733) " fill="none " stroke="#e2e2e2 " stroke-width="1.5 ">
-                            <circle cx="22.5 " cy="22.5 " r="22.5 " stroke="none "/>
-                            <circle cx="22.5 " cy="22.5 " r="21.75 " fill="none "/>
-                        </g>
-                        <path id="Icon_material-clear-all " data-name="Icon material-clear-all " d="M6.9,17.7H23.7V15.3H6.9ZM4.5,22.5H21.3V20.1H4.5Zm4.8-12v2.4H26.1V10.5Z " transform="translate(955.5 739.5) " fill="#fe1717 "/>
-                        <text id="Clear " transform="translate(960 783) " fill="#9c9c9c " font-size="10 " font-family="SegoeUI-Light, Segoe UI " font-weight="300 "><tspan x="0 " y="11 ">Clear</tspan></text>
-                        </g>
-                    </svg>                      
-                </button>
-                <button class="disapled">
+                <button onclick="$('form').submit()">
                     <svg xmlns="http://www.w3.org/2000/svg " width="45 " height="65 " viewBox="0 0 45 65 ">
                         <g id="Group_20 " data-name="Group 20 " transform="translate(-1016 -730) ">
                         <g id="Group_19 " data-name="Group 19 " transform="translate(3) ">
@@ -123,12 +85,12 @@
                             <path id="Icon_material-add-box " data-name="Icon material-add-box " d="M17.833,4.5H6.167A1.666,1.666,0,0,0,4.5,6.167V17.833A1.666,1.666,0,0,0,6.167,19.5H17.833A1.672,1.672,0,0,0,19.5,17.833V6.167A1.672,1.672,0,0,0,17.833,4.5Zm-1.667,8.333H12.833v3.333H11.167V12.833H7.833V11.167h3.333V7.833h1.667v3.333h3.333Z "
                             transform="translate(1023.5 740.5) " fill="#21b343 "/>
                         </g>
-                        <text id="Add " transform="translate(1029 781) " fill="#9c9c9c " font-size="10 " font-family="SegoeUI-Light, Segoe UI " font-weight="300 "><tspan x="0 " y="11 ">Add</tspan></text>
+                        <text id="Add " transform="translate(1029 781) " fill="#9c9c9c " font-size="10 " font-family="SegoeUI-Light, Segoe UI " font-weight="300"><tspan x="0 " y="11 ">Add</tspan></text>
                         </g>
                     </svg>                      
                 </button>
             </div>
-            </div>
+        </div>
     </div>
     <nav class="main-nav-bar ">
         <figure>
