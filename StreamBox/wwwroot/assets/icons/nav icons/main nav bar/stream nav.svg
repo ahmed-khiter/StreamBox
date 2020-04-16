@@ -1,0 +1,11 @@
+<svg id="Component_11_2" data-name="Component 11 – 2" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="Chart" transform="matrix(0.946, 0.326, -0.326, 0.946, 20.422, 9.248)">
+    <g id="m1">
+      <path id="Path_3" data-name="Path 3" d="M0,56.422c2.379-9.534,4.758-19.068,7.136-22.809s4.758-1.689,7.136,4.6,4.758,16.821,7.136,18.207,4.758-6.373,7.136-16.406S33.3,17.674,35.682,20.008s4.758,19.31,7.136,22.809,4.758-6.48,7.136-13.805,4.758-12,7.136-13.605,4.758-.148,7.136,4.6,4.758,12.79,7.136,10S76.121,13.613,78.5,0" transform="translate(0 0)" fill="none" stroke="#34e0e7" stroke-width="2"/>
+    </g>
+  </g>
+  <g id="Ellipse_3" data-name="Ellipse 3" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="50" cy="50" r="50" stroke="none"/>
+    <circle cx="50" cy="50" r="48.5" fill="none"/>
+  </g>
+</svg>

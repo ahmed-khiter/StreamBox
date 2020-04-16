@@ -1,0 +1,254 @@
+/* Essential stuff */
+
+:root {
+    /* colors */
+    --background-primary-dark-color: #202442;
+    --background-secondary-dark-color: #0C1221;
+    --foreground-light-color: #e2e2e2;
+    --foreground-gray-color:#9C9C9C;
+    --stream-color: #34E0E7;
+    --stream-color-hover: rgba(52, 225, 231, 0.1);
+    --suppliers-color: #F73DC6;
+    --suppliers-color-hover: rgba(247, 61, 197, 0.1);
+    --packages-color: #FDA268;
+    --packages-color-hover: rgba(253, 161, 104, 0.1);
+    --servers-color: #21B343;
+    --servers-color-hover: rgba(33, 179, 67, 0.102);
+    --channels-color: #EBCD06;
+    --channels-color-hover: rgba(235, 205, 6, 0.1);
+    --dashboard-color: #E93939;
+    --dashboard-color-hover: rgba(233, 57, 57, 0.1);
+    --log-color: #05B396;
+    --log-color-hover: #05b3961a;
+    /* sizes */
+    --huge: 10rem;
+    --big: 6rem;
+    --medium: 4rem;
+    --small: 2rem;
+    --tiny: 1rem;
+    /* font familiy */
+    --main-font: Segoe UI;
+    /* font sizes */
+    --huge-text: 5rem;
+    --big-text: 3rem;
+    --medium-text: 2rem;
+    --small-text: 1rem;
+    --tiny-text: .5rem;
+    /* font weight */
+    --light: 200;
+    --semi-light: 400;
+    --regular: 500;
+    --semi-bold: 600;
+    --bold: 700;
+    /* icon sizes */
+    --huge: 10rem;
+    --big: 6rem;
+    --medium: 4rem;
+    --small: 2rem;
+    --tiny: 1rem;
+}
+
+
+/* normalize essential stuff */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: var(--background-primary-dark-color);
+    color: var(--foreground-light-color);
+    font-family: var(--main-font);
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.main-header {
+    position: relative;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+
+header .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    height: 110px;
+    justify-content: space-around;
+}
+
+header .logo-container .logo {
+    height: 75px;
+    width: 69px;
+}
+
+header .logo-container label
+{
+    font-size: 14px;
+}
+
+header .profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+}
+
+header .profile-container figure:first-child {
+    height: 1.6px;
+    width: 310px;
+    background-color: var(--foreground-light-color);
+}
+
+header .profile-container .profile-photo-container .profile-photo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 0 20px;
+}
+
+header .profile-container figure:last-child {
+    height: 1.6px;
+    width: 310px;
+    background-color: var(--foreground-light-color);
+}
+
+header .helper-stuff {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+}
+
+header .helper-stuff>img , .minmax-icon {
+    height: 20px;
+}
+
+.main-container {
+    position: relative;
+    top: -30%;
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    align-self: center;
+    align-items: center;
+}
+
+main .streaming-container {
+    height: 280px;
+    width: 280px;
+    z-index: auto;
+}
+
+main .streaming-container svg {
+    width: 279px;
+    position: relative;
+    top: 1%;
+    z-index: auto;
+    transition: all ease-in-out .3s;
+}
+
+main .streaming-container label {
+    text-align: center;
+    position: relative;
+    left: 50%;
+}
+
+.stream-container:hover {
+    background-color: var(--stream-color-hover);
+    border-radius: 50%;
+}
+
+.log-container:hover {
+    background-color: var(--log-color-hover);
+    border-radius: 50%;
+}
+
+.dashboard-container:hover {
+    background-color: var(--dashboard-color-hover);
+    border-radius: 50%;
+}
+
+.channels-container:hover {
+    background-color: var(--channels-color-hover);
+    border-radius: 50%;
+}
+
+.suppliers-container:hover {
+    background-color: var(--suppliers-color-hover);
+    border-radius: 50%;
+}
+
+.packages-container:hover {
+    background-color: var(--packages-color-hover);
+    border-radius: 50%;
+}
+
+.servers-container:hover {
+    background-color: var(--servers-color-hover);
+    border-radius: 50%;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+footer a {
+    color: var(--foreground-light-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* helper classes */ 
+/* general */
+.disapled
+{
+    opacity: .25;
+}
+
+.activated
+{
+    opacity: 1;
+}
+
+.hidden
+{
+    display: none;
+}
+
+/* buttons */
+.server-button-active
+{
+    background-color: rgba(33, 179, 67, 10%)
+}
+
+/* inputs */
+
+/* checkboxes */
+.unchecked , .hide
+{
+    display: none !important;
+}
+
+.checked , .show
+{
+    display: block;
+}

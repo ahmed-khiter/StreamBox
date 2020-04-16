@@ -1,34 +1,38 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <environment include="Development">
-        <script src="~/lib/jquery/jquery.js"></script>
-        <script src="~/lib/jquery/jquery.min.js"></script>
-        <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
-        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-        <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
-    <link href="~/css/site.css" rel="stylesheet" />
-    <title>StreamBox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/assets/style/base.css">
+    @RenderSection("Styles", required: false)
+    <title>StreamBox - @ViewData["Title"]</title>
 </head>
+<body>
+    <div class="main-wrapper">
 
-<body class="nav-md">
-    <div class="container">
-        <div>
-            @RenderBody()
-        </div>
-        @if (IsSectionDefined("Scripts"))
-        {
-            @RenderSection("Scripts", required: true)
-        }
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="~/assets/icons/logo.png" alt="Straming King Logo" class="logo">
+                <label>StreamBox</label>
+            </div>
+            <div class="profile-container">
+                <figure></figure>
+                <div class="profile-photo-container">
+                    <img src="~/assets/icons/profile-photo.jpg" class="profile-photo">
+                </div>
+                <figure></figure>
+            </div>
+            <div class="helper-stuff">
+                <img src="~/assets/icons/expand.png" alt="Expand Icon">
+                <img src="~/assets/icons/messages.png" alt="messages Icon">
+                <img src="~/assets/icons/contact us.png" alt="Contact Us Icon">
+            </div>
+        </header>
+        @RenderBody()
     </div>
+    <footer>
+        All Rights Reserved @DateTime.Now.Year
+    </footer>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

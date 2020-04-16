@@ -1,0 +1,10 @@
+<svg id="Component_15_2" data-name="Component 15 – 2" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="Ellipse_4" data-name="Ellipse 4" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="50" cy="50" r="50" stroke="none"/>
+    <circle cx="50" cy="50" r="48.5" fill="none"/>
+  </g>
+  <g id="Icon_feather-tv" data-name="Icon feather-tv" transform="translate(34 29.211)">
+    <path id="Path_4" data-name="Path 4" d="M6.279,10.5H32.51c1.811,0,3.279,1.94,3.279,4.333V38.667C35.789,41.06,34.321,43,32.51,43H6.279C4.468,43,3,41.06,3,38.667V14.833C3,12.44,4.468,10.5,6.279,10.5Z" transform="translate(-3 -2.211)" fill="none" stroke="#ebcd06" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_5" data-name="Path 5" d="M25.5,3,18,10.5,10.5,3" transform="translate(-1.605 -3)" fill="none" stroke="#ebcd06" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

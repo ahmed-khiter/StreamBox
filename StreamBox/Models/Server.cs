@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace StreamBox.Models
 {
     public class Server
     {
+        internal object streams;
+
         public int Id { get; set; }
 
         [Required]
@@ -19,14 +21,22 @@ namespace StreamBox.Models
         public int MaxClients { get; set; } 
 
         [Required]
-        [Display(Name = "Superuser username (sudo)")]
-        public string SudoUsername { get; set; }
+        [Display(Name = "Root Password")]
+        public string RootPassword { get; set; }
 
-        [Required]
-        [Display(Name = "Superuser password (sudo)")]
-        public string SudoPassword { get; set; }
+        [Display(Name = "HTTP Port")]
+        public int HTTPPort { get; set; }
 
-        //One-To-Many RelationShip.
-        public ICollection<Stream> streams { get; set; }
+        [Display(Name = "HTTPS Port")]
+        public int HTTPSPort { get; set; }
+
+        [Display(Name = "RTMP Port")]
+        public int RTMPPort { get; set; }
+
+        [Display(Name = "SSH Port")]
+        public int SSHPort { get; set; }
+
+        [Display(Name = "Is RTMP?")]
+        public bool IsRTMP { get; set; }
     }
 }

@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StreamBox.Models;
+using StreamBox.Repositories;
+using StreamBox.Services;
 
 namespace StreamBox
 {
@@ -33,43 +35,43 @@ namespace StreamBox
             services.AddSession();
 
             //To make Authorize as a global and make sure the users is authinticated befor log in 
-            services.AddControllersWithViews(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlSerializerFormatters();
+            // services.AddControllersWithViews(config =>
+            // {
+            //     var policy = new AuthorizationPolicyBuilder()
+            //                      .RequireAuthenticatedUser()
+            //                      .Build();
+            //     config.Filters.Add(new AuthorizeFilter(policy));
+            // }).AddXmlSerializerFormatters();
 
             //Make Debicies to DataBase . 
             services.AddDbContextPool<AppDbContext>(
                e => e.UseSqlServer(_config.GetConnectionString("StreamTecDbConnection")));
 
             //To make Authorize as a global and make sure the users is authinticated befor log in 
-            services.AddControllersWithViews(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlSerializerFormatters();
+            // services.AddControllersWithViews(config =>
+            // {
+            //     var policy = new AuthorizationPolicyBuilder()
+            //                      .RequireAuthenticatedUser()
+            //                      .Build();
+            //     config.Filters.Add(new AuthorizeFilter(policy));
+            // }).AddXmlSerializerFormatters();
 
             //Configration formate of password :)))
-            services.Configure<IdentityOptions>(option =>
-            {
-                option.Password.RequiredLength = 3;
-                option.Password.RequireUppercase = false;
-                option.Password.RequireNonAlphanumeric = false;
-                option.Password.RequireDigit = false;
-            });
+            // services.Configure<IdentityOptions>(option =>
+            // {
+            //     option.Password.RequiredLength = 3;
+            //     option.Password.RequireUppercase = false;
+            //     option.Password.RequireNonAlphanumeric = false;
+            //     option.Password.RequireDigit = false;
+            // });
 
-            services.AddScoped<IGenericRepository<Stream>, SqlStreamRepository>();
-            services.AddScoped<IGenericRepository<Server>, SqlServerRepository>();
+            services.AddScoped<IGenericRepository<Stream>, StreamService>();
+            services.AddScoped<IGenericRepository<Server>, ServerService>();
 
             //To put authentication scheme .
-            services.AddIdentity<IdentityUser, IdentityRole>()
-               .AddDefaultTokenProviders()
-               .AddEntityFrameworkStores<AppDbContext>();
+            // services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddDefaultTokenProviders()
+            //    .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,11 +100,11 @@ namespace StreamBox
 
             //who are you ?
             //is the process that identify who the user he is ?
-            app.UseAuthentication();
+            // app.UseAuthentication();
 
             //are you allowed?
             //what the user can and cannot do ?
-            app.UseAuthorization();
+            // app.UseAuthorization();
 
             app.UseSession();
 

@@ -4,27 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StreamBox.Models;
+using StreamBox.Repositories;
 
 namespace StreamBox.Controllers
 {
     public class StreamController : Controller
     {
-        private readonly IGenericRepository<Stream> _StreamRepository;
-        public StreamController(IGenericRepository<Stream> StreamRepository)
+        private readonly IGenericRepository<Stream> Repository;
+        public StreamController(IGenericRepository<Stream> repository)
         {
-            this._StreamRepository = StreamRepository;
+            this.Repository = repository;
         }
-        public IActionResult ManageStream()
+        public IActionResult Manage()
         {
-            return View(_StreamRepository.GetAllEntities());
+            return View(Repository.All());
         }
         public IActionResult Detalies(int?Id)
         {
-            var model = _StreamRepository.GetById(Id.Value);
+            var model = Repository.GetById(Id.Value);
             if (model == null)
             {
-                Response.StatusCode = 404;
-                return View("StreamNotFound", Id.Value);
+                return NotFound();
             }
             else
             { 
@@ -33,17 +33,17 @@ namespace StreamBox.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Stream model)
+        public IActionResult Add(Stream model)
         {
             if (ModelState.IsValid)
             {
-                _StreamRepository.Add(model);
+                Repository.Add(model);
                 return RedirectToAction(nameof(Detalies), new { id = model.Id});
             }
             else
@@ -55,33 +55,32 @@ namespace StreamBox.Controllers
         [HttpPost]
         public IActionResult Delete(int Id)
         {
-            _StreamRepository.Delete(Id);
-            return RedirectToAction(nameof(ManageStream));
+            Repository.Delete(Id);
+            return RedirectToAction(nameof(Manage));
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
+        public IActionResult Edit(int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var model = _StreamRepository.GetById(id);
+            var model = Repository.GetById(id);
 
             if(model == null)
             {
-                Response.StatusCode = 404;
-                return View("StreamNotFound", id);
+                return NotFound();
             }
             return View(model);
         }
 
-        public IActionResult Update(Stream model)
+        public IActionResult Edit(Stream model)
         {
             if (ModelState.IsValid)
             {
-                _StreamRepository.Update(model);
-                return RedirectToAction(nameof(ManageStream));
+                Repository.Update(model);
+                return RedirectToAction(nameof(Manage));
             }
             else
             {

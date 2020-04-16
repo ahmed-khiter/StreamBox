@@ -1,10 +1,5 @@
-﻿using StreamBox.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace StreamBox.Models
 {
@@ -12,20 +7,18 @@ namespace StreamBox.Models
     {
         public int Id { get; set; }
 
-        [DisplayName("Stream Name")]
-        public string StreamName { get; set; }
+        [Required]
+        public string Name { get; set; }
 
-        [Display(Name = "Source", Prompt = "URL here")]
-        [Required(ErrorMessage = "You must enter URL")]
+        [Required]
         public string Source { get; set; }
 
         public string Note { get; set; }
 
-        //Many-To-One relationship 
-        public Server server { get; set; }
+        [Required]
+        public List<Server> Servers { get; set; }
 
-        //Many-To-Many Relationships.
-        public ICollection<StreamBouquets> StreamBouquets { get; set; }
+        public Bouquet Bouquet { get; set; }
 
     }
 }

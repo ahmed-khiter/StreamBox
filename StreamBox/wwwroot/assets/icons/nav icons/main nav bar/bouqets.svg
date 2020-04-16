@@ -1,0 +1,12 @@
+<svg id="Component_13_2" data-name="Component 13 – 2" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="Ellipse_11" data-name="Ellipse 11" fill="none" stroke="#e2e2e2" stroke-width="3">
+    <circle cx="50" cy="50" r="50" stroke="none"/>
+    <circle cx="50" cy="50" r="48.5" fill="none"/>
+  </g>
+  <g id="Icon_feather-package" data-name="Icon feather-package" transform="translate(38.663 37.33)">
+    <path id="Path_6" data-name="Path 6" d="M10.334,5.614,0,0" transform="matrix(0.999, 0.052, -0.052, 0.999, 6.794, 3.022)" fill="none" stroke="#fda268" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_7" data-name="Path 7" d="M27.241,20.675v-10.1a2.525,2.525,0,0,0-1.263-2.184l-8.844-5.05a2.528,2.528,0,0,0-2.527,0L5.763,8.391A2.525,2.525,0,0,0,4.5,10.575v10.1a2.525,2.525,0,0,0,1.263,2.184l8.844,5.05a2.528,2.528,0,0,0,2.527,0l8.844-5.05a2.525,2.525,0,0,0,1.263-2.184Z" transform="translate(-4.5 -3.003)" fill="none" stroke="#fda268" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_8" data-name="Path 8" d="M4.905,10.44,15.87,18.015,26.836,10.44" transform="translate(-4.5 -4.57)" fill="none" stroke="#fda268" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_9" data-name="Path 9" d="M18,29.922V18" transform="translate(-6.63 -4.555)" fill="none" stroke="#fda268" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="65" viewBox="0 0 45 65">
+  <g id="Group_20" data-name="Group 20" transform="translate(-1016 -730)">
+    <g id="Group_19" data-name="Group 19" transform="translate(3)">
+      <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(1013 730)" fill="none" stroke="#e2e2e2" stroke-width="1.5">
+        <circle cx="22.5" cy="22.5" r="22.5" stroke="none"/>
+        <circle cx="22.5" cy="22.5" r="21.75" fill="none"/>
+      </g>
+      <path id="Icon_material-add-box" data-name="Icon material-add-box" d="M17.833,4.5H6.167A1.666,1.666,0,0,0,4.5,6.167V17.833A1.666,1.666,0,0,0,6.167,19.5H17.833A1.672,1.672,0,0,0,19.5,17.833V6.167A1.672,1.672,0,0,0,17.833,4.5Zm-1.667,8.333H12.833v3.333H11.167V12.833H7.833V11.167h3.333V7.833h1.667v3.333h3.333Z" transform="translate(1023.5 740.5)" fill="#21b343"/>
+    </g>
+    <text id="Add" transform="translate(1029 781)" fill="#9c9c9c" font-size="10" font-family="SegoeUI-Light, Segoe UI" font-weight="300"><tspan x="0" y="11">Add</tspan></text>
+  </g>
+</svg>
