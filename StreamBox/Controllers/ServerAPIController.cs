@@ -15,7 +15,7 @@ namespace StreamBox.Controllers
             Repository = repository;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("update/{id}")]
         public IActionResult UpdateState(int id)
         {

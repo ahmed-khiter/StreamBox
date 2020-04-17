@@ -48,7 +48,9 @@
                                     <strong style="color:red">Proccessing...</strong>
                                 }
                             </td>
-                            <td>NULL</td>
+                            <td>
+                                <a asp-controller="Server" asp-action="Edit" asp-route-id="@server.Id">Edit</a>
+                            </td>
                         </tr>
                     }
                 </tbody>

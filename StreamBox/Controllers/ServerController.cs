@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StreamBox.Models;
 using StreamBox.Repositories;
+using System.Threading.Tasks;
 
 namespace StreamBox.Controllers
 {
@@ -36,7 +37,7 @@ namespace StreamBox.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Server model)
+        public async Task<IActionResult> Add(Server model)
         {
             if (!ModelState.IsValid)
             {
@@ -70,6 +71,7 @@ namespace StreamBox.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public IActionResult Edit(Server model)
         {
             if (ModelState.IsValid)

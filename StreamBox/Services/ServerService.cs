@@ -1,6 +1,7 @@
 ﻿using StreamBox.Models;
 using StreamBox.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StreamBox.Services
 {
@@ -32,6 +33,11 @@ namespace StreamBox.Services
         public IEnumerable<Server> All()
         {
             return dbContext.Servers;
+        }
+
+        public IEnumerable<Server> AllActive()
+        {
+            return dbContext.Servers.Where(s => s.State == true).ToList();
         }
 
         public Server GetById(int ID)
