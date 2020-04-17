@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Renci.SshNet;
 using StreamBox.Models;
 using StreamBox.Repositories;
 using System.Threading.Tasks;
@@ -43,6 +44,10 @@ namespace StreamBox.Controllers
             {
                 return View();
             }
+            var client = new SshClient(model.IP, "root", model.RootPassword);
+            client.Connect();
+            client.RunCommand("sleep 10 && curl -i -X ");
+            client.Disconnect();
             Repository.Add(model);
             return RedirectToAction(nameof(Details), new { id = model.Id });
         }
