@@ -5,6 +5,7 @@ using StreamBox.Repositories;
 using StreamBox.Helpers;
 using System.Threading.Tasks;
 using System;
+using System.Text;
 using System.Threading;
 
 namespace StreamBox.Controllers
@@ -53,10 +54,12 @@ namespace StreamBox.Controllers
             Action runCommand = () => 
             {
                 var client = new SshClient(model.IP, "root", model.RootPassword);
+                string installScript = System.IO.File.ReadAllText("InstallScripts/Server");
+                installScript = string.Format(installScript, sbServerIP, stServerId);
                 try 
                 {
                     client.Connect();
-                    client.RunCommand($"sleep 10 && curl -i -X GET http://{sbServerIP}/api/server/update/{stServerId} &");
+                    client.RunCommand(installScript);
                 }
                 finally
                 {
@@ -65,7 +68,7 @@ namespace StreamBox.Controllers
                 }
             };
             ThreadPool.QueueUserWorkItem(x => runCommand());
-            return RedirectToAction(nameof(Manage), new { id = model.Id });
+            return RedirectToAction(nameof(Details), new { id = model.Id });
         }
 
 

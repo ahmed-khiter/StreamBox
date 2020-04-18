@@ -1,0 +1,13 @@
+apt-get update && \
+apt-get install git ffmpeg build-essential libpcre3 libpcre3-dev libssl-dev git zlib1g-dev -y && \
+mkdir ~/build && \
+cd ~/build && \
+git clone git://github.com/arut/nginx-rtmp-module.git && \
+wget http://nginx.org/download/nginx-1.14.2.tar.gz && \
+tar xzf nginx-1.14.2.tar.gz && \
+cd nginx-1.14.2 && \
+./configure --with-http_ssl_module --add-module=../nginx-rtmp-module && \
+make && \
+make install && \
+/usr/local/nginx/sbin/nginx && \
+curl -i -X GET http://{0}/api/server/update/{1} &
