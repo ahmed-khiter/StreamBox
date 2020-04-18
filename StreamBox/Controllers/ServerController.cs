@@ -38,16 +38,16 @@ namespace StreamBox.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(Server model)
+        public IActionResult Add(Server model)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var client = new SshClient(model.IP, "root", model.RootPassword);
-            client.Connect();
-            client.RunCommand("sleep 10 && curl -i -X ");
-            client.Disconnect();
+            // var client = new SshClient(model.IP, "root", model.RootPassword);
+            // client.Connect();
+            // client.RunCommand("sleep 10 && curl -i -X ");
+            // client.Disconnect();
             Repository.Add(model);
             return RedirectToAction(nameof(Details), new { id = model.Id });
         }

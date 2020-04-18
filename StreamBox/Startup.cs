@@ -89,8 +89,13 @@ namespace StreamBox
                 app.UseHsts();
             }
 
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             //General Data Protection Regulation (GDPR) regulations ... redirects HTTP requests to HTTPS.
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             //For static file "wwwroot"
             app.UseStaticFiles();
