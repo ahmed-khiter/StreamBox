@@ -2,7 +2,10 @@
 using Renci.SshNet;
 using StreamBox.Models;
 using StreamBox.Repositories;
+using StreamBox.Helpers;
 using System.Threading.Tasks;
+using System;
+using System.Threading;
 
 namespace StreamBox.Controllers
 {
@@ -44,12 +47,25 @@ namespace StreamBox.Controllers
             {
                 return View();
             }
-            // var client = new SshClient(model.IP, "root", model.RootPassword);
-            // client.Connect();
-            // client.RunCommand("sleep 10 && curl -i -X ");
-            // client.Disconnect();
             Repository.Add(model);
-            return RedirectToAction(nameof(Details), new { id = model.Id });
+            var sbServerIP = ShellHelper.GetServerIPV4();
+            var stServerId = model.Id;
+            Action runCommand = () => 
+            {
+                var client = new SshClient(model.IP, "root", model.RootPassword);
+                try 
+                {
+                    client.Connect();
+                    client.RunCommand($"sleep 10 && curl -i -X GET http://{sbServerIP}/api/server/update/{stServerId} &");
+                }
+                finally
+                {
+                    client.Disconnect();
+                    client.Dispose();
+                }
+            };
+            ThreadPool.QueueUserWorkItem(x => runCommand());
+            return RedirectToAction(nameof(Manage), new { id = model.Id });
         }
 
 
