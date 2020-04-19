@@ -38,7 +38,7 @@
                             <td>@server.Name</td>
                             <td>@server.IP</td>
                             <td>@server.MaxClients</td>
-                            <td>
+                            <td id="@server.Id">
                                 @if (server.State)
                                 {
                                     <strong style="color:green">Ready</strong>
@@ -58,3 +58,16 @@
         </div>
     </div>
 </main>
+
+@section Scripts {
+    <script src="~/assets/lib/signalr.min.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            let connection = new signalR.HubConnectionBuilder().withUrl("/server-update-hub").build();
+            connection.start();
+            connection.on("Update", serverId => {
+                document.getElementById(serverId).innerHTML = '<strong style="color:green">Ready</strong>';
+            });
+        });
+    </script>
+}

@@ -10,4 +10,9 @@ cd nginx-1.14.2 ; \
 make ; \
 make install ; \
 /usr/local/nginx/sbin/nginx ; \
+cd ~ ; \
+curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh ; \
+bash nodesource_setup.sh ; \
+apt-get install nodejs -y ; \
+npm install pm2 -g ; \
 curl -i -X GET http://{0}/api/server/update/{1}

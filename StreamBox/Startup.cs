@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using StreamBox.Models;
 using StreamBox.Repositories;
 using StreamBox.Services;
+using StreamBox.Realtime;
 
 namespace StreamBox
 {
@@ -33,7 +34,7 @@ namespace StreamBox
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddSession();
-
+            services.AddSignalR();
             //To make Authorize as a global and make sure the users is authinticated befor log in 
             // services.AddControllersWithViews(config =>
             // {
@@ -116,6 +117,7 @@ namespace StreamBox
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapHub<ServerUpdateHub>("/server-update-hub");
             });
         }
     }
